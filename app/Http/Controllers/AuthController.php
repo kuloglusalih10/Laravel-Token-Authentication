@@ -45,7 +45,7 @@ class AuthController extends ApiResponse
         }
 
         $token = $user -> createToken('token')->accessToken;
-        $token -> expires_at = Carbon::now()->addMinute(2);
+        $token -> expires_at = Carbon::now()->addHour(1);
 
         $token->save();
 

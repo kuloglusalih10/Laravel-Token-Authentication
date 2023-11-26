@@ -27,7 +27,7 @@ class AuthMiddleware
 
         if($token_row && $token_row->expires_at && !Carbon::now()->gt($token_row -> expires_at)){
 
-            DB::table('personal_access_tokens') -> where('token', $token)->update(['expires_at' => Carbon::now()->addMinute(2)]);
+            DB::table('personal_access_tokens') -> where('token', $token)->update(['expires_at' => Carbon::now()->addHour(1)]);
             return $next($request);
         }else{
 
